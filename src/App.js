@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core';
+import DataVisualization from './Screens/DataVisualization';
 
-function App() {
+const App = () => {
+
+  // #29314F - sec
+
+  const theme = createTheme({
+    palette: {
+      type: "dark",
+      primary: {
+        main: "#111936",
+        card: "#29314F",
+        text: "#FFFFFF",
+      },
+      secondary: {
+        main: "#1A223F",
+        text: "#FFFFFF",
+      },
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <DataVisualization />
+    </ThemeProvider>
   );
 }
 
